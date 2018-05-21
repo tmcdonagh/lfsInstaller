@@ -52,3 +52,35 @@ do
     break
   fi
 done
+# Formats root partition as ext4
+sudo mkfs -v -t ext4 $part
+# If swap is present format swap
+if [ $swap != "None" ]
+then
+  sudo mkswap $swap
+  sudo /sbin/swapon -v $swap
+fi
+export LFS=/mnt/lfs
+sudo mkdir -pv $LFS
+sudo mount -v -t ext4 $part $LFS
+sudo mkdir -v $LFS/sources
+sudo chmod -v a+wt $LFS/sources
+sudo wget --input-file=wget-list -continue --directory-prefix=$LFS/sources
+sudo mkdir -v $LFS/tools
+ln -sv $LFS/tools /
+sudo groupadd lfs
+sudo useradd -s /bin/bash -g lfs -m -k /dev/null lfs
+echo "
+
+
+
+Input Password for lfs user
+
+
+
+"
+sudo passwd lfs
+sudo chown -v lfs $LFS/tools
+sudo chwon -v lfs $LFS/sources
+su - lfs
+echo test
