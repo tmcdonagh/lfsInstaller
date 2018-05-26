@@ -35,7 +35,7 @@ do
 done
 
 # Brings partitioning utility up
-cfdisk $mainDrive
+sudo cfdisk $mainDrive
 while :
 do
   part=$(dialog --inputbox "What is the root partition?\n (i.e. /dev/sda1)" 10 25 --output-fd 1)
