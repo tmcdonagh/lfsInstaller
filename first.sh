@@ -67,7 +67,7 @@ sudo mkdir -v $LFS/sources
 sudo chmod -v a+wt $LFS/sources
 sudo wget --input-file=wget-list -continue --directory-prefix=$LFS/sources
 sudo mkdir -v $LFS/tools
-ln -sv $LFS/tools /
+sudo ln -sv $LFS/tools /
 sudo groupadd lfs
 sudo useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 echo "
