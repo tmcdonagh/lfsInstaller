@@ -42,7 +42,7 @@ do
   dialog --yesno "Do you have a swap partition?" 10 30
   if [ $? == 0 ] 
   then
-    swap=$(dialog --inputbox "What is your swap partition?\n (i.e. /dev/sda)" 10 25 --output-fd 1)
+    swap=$(dialog --inputbox "What is your swap partition?\n (i.e. /dev/sda2)" 10 25 --output-fd 1)
   else
     swap="None"
   fi
@@ -81,6 +81,6 @@ Input Password for lfs user
 "
 sudo passwd lfs
 sudo chown -v lfs $LFS/tools
-sudo chwon -v lfs $LFS/sources
+sudo chown -v lfs $LFS/sources
 su - lfs
 echo test
