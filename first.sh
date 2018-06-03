@@ -1,6 +1,6 @@
 #!/bin/bash
 # Installs required packages
-sudo apt install dialog \
+sudo apt install -y dialog \
   vim \
   binutils \
   bison \
@@ -13,7 +13,7 @@ sudo apt install dialog \
   grep \
   gzip 
 # Updates and upgrades packages
-sudo apt update && sudo apt upgrade
+sudo apt -y update && sudo apt -y upgrade
 
 while :
 do
@@ -83,4 +83,3 @@ sudo passwd lfs
 sudo chown -v lfs $LFS/tools
 sudo chown -v lfs $LFS/sources
 su - lfs
-echo test
