@@ -10,13 +10,12 @@ LFS_TGT=$(uname -m)-lfs-linux-gnu
 PATH=/tools/bin:/bin:/usr/bin
 export LFS LC_ALL LFS_TGT PATH
 " >> ~/.bashrc
-source ~/.bash_profile
+#source ~/.bash_profile
 
 cd $LFS/sources
 
 
 
-
 # later
-cores=$(dialog --inputbox "How many cores do you want to use?" 10 25 --output-fd 1)
+cores=$(dialog --inputbox "How many cores do you want to use?" 10 25 2>&1 > /dev/tty)
 
