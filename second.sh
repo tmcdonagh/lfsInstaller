@@ -13,9 +13,5 @@ export LFS LC_ALL LFS_TGT PATH
 #source ~/.bash_profile
 
 cd $LFS/sources
-
-
-
-# later
-cores=$(dialog --inputbox "How many cores do you want to use?" 10 25 2>&1 > /dev/tty)
+cores=$(dialog --inputbox "How many cores do you want to use for compiling?" 10 25 2>&1 > /dev/tty)
 
