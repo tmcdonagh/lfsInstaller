@@ -83,6 +83,6 @@ Input Password for lfs user
 sudo passwd lfs
 sudo chown -v lfs $LFS/tools
 sudo chown -v lfs $LFS/sources
-cp -v/home/user/lfsInstaller/* /home/lfs/
+cp -v /home/user/lfsInstaller/* /home/lfs/
 dialog --msgbox "Please run second.sh with ./second.sh" 10 30
 su - lfs
