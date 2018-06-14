@@ -20,22 +20,23 @@ tar -xvf binutils-2.22.tar.bz2
 cd binutils-2.22.tar.bz2
 mkdir -v build
 cd build
-time{
+time {
 ../configure \
   --prefix=/tools \
   --with-sysroot=$LFS \
   --with-lib-path=/tools/lib \
   --target=$LFS_TGT \
   --disable-nls \
-  --disable-werror
-make -j $cores
+  --disable-werror &&
+make -j $cores &&
+
 case $(uname -m) in
   x86_64) mkdir -v /tools/lib && ln -sv lib /tools/lib64 ;;
-esac
+esac &&
 make install
+}
 mkdir -v $LFS/sources/finished
 mv $LFS/sources/binutils-2.22.tar.bz2 $LFS/sources/finished
-}
 
 # Compiles GCC and related packages
 cd $LFS/sources
@@ -75,9 +76,8 @@ case $(uname -m) in
       -i.orig gcc/config/i386/t-linux64
     ;;
 esac
-mkdir -v build
-cd build
-time {
+mkdir -v build &&
+cd build &&
 ../configure \
   --target=$LFS_TGT \
   --prefix=/tools \
@@ -99,7 +99,7 @@ time {
   --disable-libssp \
   --disable-libvtv \
   --disable-libstdcxx \
-  --enable-languages=c,c++
-make -j $cores
+  --enable-languages=c,c++ &&
+make -j $cores &&
 make install
 }
