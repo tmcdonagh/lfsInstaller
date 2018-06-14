@@ -33,8 +33,28 @@ case $(uname -m) in
   x86_64) mkdir -v /tools/lib && ln -sv lib /tools/lib64 ;;
 esac
 make install
+mkdir -v $LFS/sources/finished
+mv $LFS/sources/binutils-2.22.tar.bz2 $LFS/sources/finished
 }
+
+# Compiles GCC and related packages
 cd $LFS/sources
-tar -xvf mpfr-3.1.0.tar.bz2
+tar -xvf gcc-4.6.2.tar.bz2 
+cd gcc-4.6.2
+
+tar -xvf ../mpfr-3.1.0.tar.bz2
 mv -v mpfr-3.1.0 mpfr
+tar -xvf ../gmp-5.0.4.tar.xz
+mv -v gmp-5.0.4.tar.xz gmp
+tar -xvf ../mpc-1.1.0.tar.gz
+mv -v mpc-1.1.0 mpc
+
+# Moves tar files to finished directory
+mv $LFS/sources/gcc-4.6.2.tar.bz2 $LFS/sources/finished
+mv $LFS/sources/mpfr-3.1.0.tar.bz2 $LFS/sources/finished
+mv $LFS/sources/gmp-5.0.4.tar.xz $LFS/sources/finished
+mv $LFS/sources/mpc-1.1.0.tar.gz $LFS/sources/finished
+
+
+
 
