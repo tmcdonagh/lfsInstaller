@@ -1,4 +1,5 @@
 #!/bin/bash
+LFS=/mnt/lfs
 echo "exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash" >> ~/.bash_profile
 
 echo "
@@ -17,7 +18,7 @@ cores=$(dialog --inputbox "How many cores do you want to use for compiling?" 10 
 
 # Compiles binutils as it is needed by other packages to compile
 tar -xvf binutils-2.22.tar.bz2
-cd binutils-2.22.tar.bz2
+cd binutils-2.22
 mkdir -v build
 cd build
 time {
@@ -33,8 +34,8 @@ make -j $cores &&
 case $(uname -m) in
   x86_64) mkdir -v /tools/lib && ln -sv lib /tools/lib64 ;;
 esac  &&
-make install
-; }
+make install ;
+}
 mkdir -v $LFS/sources/finished
 mv $LFS/sources/binutils-2.22.tar.bz2 $LFS/sources/finished
 
@@ -101,5 +102,5 @@ cd build &&
   --disable-libstdcxx \
   --enable-languages=c,c++ &&
 make -j $cores &&
-make install
-; }
+make install ;
+}
