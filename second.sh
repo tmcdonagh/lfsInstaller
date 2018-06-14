@@ -52,6 +52,9 @@ sudo mv -v gmp-5.0.4.tar.xz gmp
 tar -xf ../mpc-1.1.0.tar.gz
 sudo mv -v mpc-1.1.0 mpc
 
+# Debugging
+sleep 10
+
 # Moves tar files to finished directory
 sudo mv $LFS/sources/gcc-4.6.2.tar.bz2 $LFS/sources/finished
 sudo mv $LFS/sources/mpfr-3.1.0.tar.bz2 $LFS/sources/finished
