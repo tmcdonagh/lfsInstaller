@@ -78,7 +78,7 @@ case $(uname -m) in
     ;;
 esac
 
-
+time {
 mkdir -v build &&
   cd build &&
   ../configure \
