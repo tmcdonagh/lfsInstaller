@@ -1,5 +1,6 @@
 #!/bin/bash
 # Installs required packages
+sudo apt -y update && sudo apt -y upgrade
 sudo apt install -y dialog \
   vim \
   binutils \

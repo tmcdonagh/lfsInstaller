@@ -15,3 +15,26 @@ export LFS LC_ALL LFS_TGT PATH
 cd $LFS/sources
 cores=$(dialog --inputbox "How many cores do you want to use for compiling?" 10 25 2>&1 > /dev/tty)
 
+# Compiles binutils as it is needed by other packages to compile
+tar -xvf binutils-2.22.tar.bz2
+cd binutils-2.22.tar.bz2
+mkdir -v build
+cd build
+time{
+../configure \
+  --prefix=/tools \
+  --with-sysroot=$LFS \
+  --with-lib-path=/tools/lib \
+  --target=$LFS_TGT \
+  --disable-nls \
+  --disable-werror
+make -j $cores
+case $(uname -m) in
+  x86_64) mkdir -v /tools/lib && ln -sv lib /tools/lib64 ;;
+esac
+make install
+}
+cd $LFS/sources
+tar -xvf mpfr-3.1.0.tar.bz2
+mv -v mpfr-3.1.0 mpfr
+
