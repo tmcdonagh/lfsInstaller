@@ -79,7 +79,10 @@ case $(uname -m) in
 esac
 
 # idk if will work but a test
-sudo cp -r */* .
+#sudo cp -r */* .
+sudo cp -r mpfr/* .
+sudo cp -r gmp-5.0.4/* .
+sudo cp -r mpc/* .
 
 time {
 mkdir -v build &&
