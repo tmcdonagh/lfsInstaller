@@ -66,6 +66,7 @@ sudo mkdir -pv $LFS
 sudo mount -v -t ext4 $part $LFS
 sudo mkdir -v $LFS/sources
 sudo chmod -v a+wt $LFS/sources
+echo "Obtaining wget-list..."
 sudo wget --input-file=wget-list -continue --directory-prefix=$LFS/sources
 sudo mkdir -v $LFS/tools
 sudo ln -sv $LFS/tools /
