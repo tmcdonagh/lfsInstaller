@@ -32,9 +32,9 @@ make -j $cores &&
 
 case $(uname -m) in
   x86_64) mkdir -v /tools/lib && ln -sv lib /tools/lib64 ;;
-esac &&
+esac  &&
 make install
-}
+; }
 mkdir -v $LFS/sources/finished
 mv $LFS/sources/binutils-2.22.tar.bz2 $LFS/sources/finished
 
@@ -102,4 +102,4 @@ cd build &&
   --enable-languages=c,c++ &&
 make -j $cores &&
 make install
-}
+; }
