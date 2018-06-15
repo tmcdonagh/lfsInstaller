@@ -55,18 +55,18 @@ sudo mv -v mpc-1.1.0 mpc
 # Configures and makes above 3 packages
 cd gmp
 ./configure
-make -j $cores
-make install
+sudo make -j $cores
+sudo make install
 
 cd ../mpfr
 ./configure
-make -j $cores
-make install
+sudo make -j $cores
+sudo make install
 
 cd ../mpc
 ./configure
-make -j $cores
-make install
+sudo make -j $cores
+sudo make install
 cd ..
 
 
@@ -97,10 +97,9 @@ case $(uname -m) in
 esac
 
 # idk if will work but a test
-#sudo cp -r */* .
-sudo cp -r mpfr/* .
-sudo cp -r gmp/* .
-sudo cp -r mpc/* .
+#sudo cp -r mpfr/* .
+#sudo cp -r gmp/* .
+#sudo cp -r mpc/* .
 
 time {
 mkdir -v build &&
