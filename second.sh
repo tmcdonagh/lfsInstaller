@@ -55,6 +55,8 @@ mpfr/configure \
   --target=$LFS_TGT \
   --disable-nls \
   --disable-werror
+make -j $cores
+make install
 
 tar -xf ../gmp-5.0.4.tar.xz
 sudo mv -v gmp-5.0.4 gmp
@@ -68,6 +70,10 @@ gmp/configure \
   --disable-nls \
   --disable-werror
 
+make -j $cores
+make install
+
+
 tar -xf ../mpc-1.1.0.tar.gz
 sudo mv -v mpc-1.1.0 mpc
 
@@ -79,6 +85,10 @@ mpc/configure \
   --target=$LFS_TGT \
   --disable-nls \
   --disable-werror
+
+make -j $cores
+make install
+
 
 # Moves tar files to finished directory
 sudo mv $LFS/sources/gcc-4.6.2.tar.bz2 $LFS/sources/finished
