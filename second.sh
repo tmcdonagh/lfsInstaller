@@ -52,6 +52,24 @@ sudo mv -v gmp-5.0.4 gmp
 tar -xf ../mpc-1.1.0.tar.gz
 sudo mv -v mpc-1.1.0 mpc
 
+# Configures and makes above 3 packages
+cd gmp
+./configure
+make -j $cores
+make install
+
+cd ../mpfr
+./configure
+make -j $cores
+make install
+
+cd ../mpc
+./configure
+make -j $cores
+make install
+cd ..
+
+
 # Moves tar files to finished directory
 sudo mv $LFS/sources/gcc-4.6.2.tar.bz2 $LFS/sources/finished
 sudo mv $LFS/sources/mpfr-3.1.0.tar.bz2 $LFS/sources/finished
