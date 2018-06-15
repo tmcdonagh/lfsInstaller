@@ -81,7 +81,7 @@ esac
 # idk if will work but a test
 #sudo cp -r */* .
 sudo cp -r mpfr/* .
-sudo cp -r gmp-5.0.4/* .
+sudo cp -r gmp/* .
 sudo cp -r mpc/* .
 
 time {
