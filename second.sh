@@ -47,10 +47,38 @@ cd gcc-4.6.2
 
 tar -xf ../mpfr-3.1.0.tar.bz2
 sudo mv -v mpfr-3.1.0 mpfr
+
+mpfr/configure \
+  --prefix=/tools \
+  --with-sysroot=$LFS \
+  --with-lib-path=/tools/lib \
+  --target=$LFS_TGT \
+  --disable-nls \
+  --disable-werror
+
 tar -xf ../gmp-5.0.4.tar.xz
-sudo mv -v gmp-5.0.4.tar.xz gmp
+sudo mv -v gmp-5.0.4 gmp
+
+
+gmp/configure \
+  --prefix=/tools \
+  --with-sysroot=$LFS \
+  --with-lib-path=/tools/lib \
+  --target=$LFS_TGT \
+  --disable-nls \
+  --disable-werror
+
 tar -xf ../mpc-1.1.0.tar.gz
 sudo mv -v mpc-1.1.0 mpc
+
+
+mpc/configure \
+  --prefix=/tools \
+  --with-sysroot=$LFS \
+  --with-lib-path=/tools/lib \
+  --target=$LFS_TGT \
+  --disable-nls \
+  --disable-werror
 
 # Moves tar files to finished directory
 sudo mv $LFS/sources/gcc-4.6.2.tar.bz2 $LFS/sources/finished
