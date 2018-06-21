@@ -26,21 +26,20 @@ mv binutils-2.22 binutils
 cd binutils
 mkdir -v build
 cd build
-time {
 ../configure \
   --prefix=/tools \
   --with-sysroot=$LFS \
   --with-lib-path=/tools/lib \
   --target=$LFS_TGT \
   --disable-nls \
-  --disable-werror &&
-  make -j $cores &&
+  --disable-werror 
+  make -j $cores 
 
   case $(uname -m) in
     x86_64) mkdir -v /tools/lib && ln -sv lib /tools/lib64 ;;
   esac  
-  make install ;
-}
+  make install 
+
 mkdir -v $LFS/sources/finished
 mv $LFS/sources/binutils-2.22.tar.bz2 $LFS/sources/finished
 
@@ -105,9 +104,9 @@ esac
 #sudo cp -r gmp/* .
 #sudo cp -r mpc/* .
 
-time {
-mkdir -v build &&
-  cd build &&
+
+mkdir -v build 
+  cd build 
   ../configure \
   --target=$LFS_TGT \
   --prefix=/tools \
@@ -129,7 +128,6 @@ mkdir -v build &&
   --disable-libssp \
   --disable-libvtv \
   --disable-libstdcxx \
-  --enable-languages=c,c++ &&
-  make -j $cores &&
-  make install ;
-}
+  --enable-languages=c,c++ 
+  make -j $cores 
+  make install 
