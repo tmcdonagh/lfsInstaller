@@ -38,7 +38,7 @@ cd build
   case $(uname -m) in
     x86_64) sudo mkdir -v /tools/lib && sudo ln -sv lib /tools/lib64 ;;
   esac  
-  make install 
+  sudo make install 
 
 mkdir -v $LFS/sources/finished
 mv $LFS/sources/binutils-2.22.tar.bz2 $LFS/sources/finished
