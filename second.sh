@@ -1,5 +1,8 @@
 #!/bin/bash
 LFS=/mnt/lfs
+LC_ALL=POSIX
+LFS_TGT=$(uname -m)-lfs-linux-gnu
+PATH=/tools/bin:/bin:/usr/bin
 sudo ls
 echo "exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash" >> ~/.bash_profile
 
@@ -19,7 +22,8 @@ cores=$(dialog --inputbox "How many cores do you want to use for compiling?" 10 
 
 # Compiles binutils as it is needed by other packages to compile
 tar -xf binutils-2.22.tar.bz2
-cd binutils-2.22
+mv binutils-2.22 binutils
+cd binutils
 mkdir -v build
 cd build
 time {
