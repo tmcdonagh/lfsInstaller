@@ -36,7 +36,7 @@ cd build
   make -j $cores 
 
   case $(uname -m) in
-    x86_64) mkdir -v /tools/lib && ln -sv lib /tools/lib64 ;;
+    x86_64) sudo mkdir -v /tools/lib && sudo ln -sv lib /tools/lib64 ;;
   esac  
   make install 
 
